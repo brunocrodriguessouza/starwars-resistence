@@ -15,7 +15,9 @@ public class UpdateRebelLocationUseCase {
 
     public void handle(UpdateLocationInput input){
         Optional<RebelTable> table =  repository.findById(input.idRebel());
-        table.orElseThrow(RebelNotFoundException::new);
+        RebelTable rebelTable = table.orElseThrow(RebelNotFoundException::new);
+        repository.patchLocation(rebelTable);
+
     }
 }
 

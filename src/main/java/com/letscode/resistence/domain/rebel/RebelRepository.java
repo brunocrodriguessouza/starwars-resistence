@@ -7,4 +7,6 @@ public interface RebelRepository {
     void save(RebelTable table);
 
     Optional<RebelTable> findById(Long id);
+
+    void patchLocation(RebelTable table);
 }
