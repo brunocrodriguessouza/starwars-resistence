@@ -21,12 +21,12 @@ public class RebelRepositoryInMemory implements RebelRepository{
     }
 
     @Override
-    public void patchLocation(RebelTable table) {
-        int index = (int) (table.getId() - 1);
+    public void updateLocationById(Long id, Long latitude, Long longitude) {
+        int index = (int) (id - 1);
         var rebelTable = RebelTable.builder()
-                .id(table.getId())
-                .latitude(table.getLatitude())
-                .longitude(table.getLongitude())
+                .id(id)
+                .latitude(latitude)
+                .longitude(longitude)
                 .build();
        database.add(index, rebelTable);
     }

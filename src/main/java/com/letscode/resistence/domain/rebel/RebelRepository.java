@@ -8,5 +8,5 @@ public interface RebelRepository {
 
     Optional<RebelTable> findById(Long id);
 
-    void patchLocation(RebelTable table);
+    void updateLocationById(Long id, Long latitude, Long longitude);
 }
