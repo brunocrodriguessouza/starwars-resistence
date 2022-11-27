@@ -21,6 +21,7 @@ public class AddRebelUseCase {
                 .name(input.name())
                 .age(input.age())
                 .gender(input.gender())
+                .traitor(input.traitor())
                 .latitude(input.latitude())
                 .longitude(input.longitude())
                 .galaxyName(input.galaxyName())
@@ -28,7 +29,7 @@ public class AddRebelUseCase {
     }
 }
 
-record AddRebelInput(String name, Integer age, String gender, Long latitude, Long longitude, String galaxyName){}
+record AddRebelInput(String name, Integer age, String gender, boolean traitor, Long latitude, Long longitude, String galaxyName){}
 
 
 

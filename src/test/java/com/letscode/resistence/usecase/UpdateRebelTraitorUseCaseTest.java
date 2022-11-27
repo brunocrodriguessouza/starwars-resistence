@@ -7,42 +7,41 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class UpdateRebelLocationUseCaseTest {
+class UpdateRebelTraitorUseCaseTest {
 
     @Test
     public void shouldThrowExceptionWhenRebelNotFound(){
         RebelRepository repository = new RebelRepositoryInMemory();
-        UpdateRebelLocationUseCase useCase = new UpdateRebelLocationUseCase(repository);
-        UpdateLocationInput input = new UpdateLocationInput(1L, 132L, 165L, "M83");
+        UpdateRebelTraitorUseCase useCase = new UpdateRebelTraitorUseCase(repository);
+        UpdateRebelTraitorInput input = new UpdateRebelTraitorInput(1L);
         assertThrows(RebelNotFoundException.class, () -> useCase.handle(input));
     }
 
     @Test
-    public void shouldUpdateLocation(){
+    public void shouldReportAsTraitor(){
         RebelRepository repository = new RebelRepositoryInMemory();
-        UpdateRebelLocationUseCase useCase = new UpdateRebelLocationUseCase(repository);
+        UpdateRebelTraitorUseCase useCase = new UpdateRebelTraitorUseCase(repository);
 
         RebelTable rebel = RebelTable.builder()
                 .id(1L)
                 .name("Gabriel")
                 .age(12)
                 .gender("Male")
-                .traitor(false)
-                .longitude(123L)
                 .latitude(125L)
+                .longitude(123L)
                 .galaxyName("M83")
                 .build();
 
         repository.save(rebel);
-        UpdateLocationInput input = new UpdateLocationInput(1L, -1234L, 582L, "M85");
+        UpdateRebelTraitorInput input = new UpdateRebelTraitorInput(1L);
         useCase.handle(input);
 
         assertEquals("Gabriel", rebel.getName());
         assertEquals(12, rebel.getAge());
-        assertEquals(-1234L, rebel.getLatitude());
-        assertEquals(582L, rebel.getLongitude());
-        assertEquals("M85", rebel.getGalaxyName());
-        assertEquals(false, rebel.isTraitor());
+        assertEquals(125L, rebel.getLatitude());
+        assertEquals(123L, rebel.getLongitude());
+        assertEquals("M83", rebel.getGalaxyName());
+        assertEquals(true, rebel.isTraitor());
     }
 
 }

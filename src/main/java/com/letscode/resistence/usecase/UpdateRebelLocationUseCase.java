@@ -16,8 +16,8 @@ public class UpdateRebelLocationUseCase {
     public void handle(UpdateLocationInput input){
         Optional<RebelTable> table =  repository.findById(input.idRebel());
         Long id = table.orElseThrow(RebelNotFoundException::new).getId();
-        repository.updateLocationById(id, input.latitude(), input.longitude());
+        repository.updateLocationById(id, input.latitude(), input.longitude(), input.galaxyName());
     }
 }
 
-record UpdateLocationInput(Long idRebel, Long latitude, Long longitude){}
+record UpdateLocationInput(Long idRebel, Long latitude, Long longitude, String galaxyName){}

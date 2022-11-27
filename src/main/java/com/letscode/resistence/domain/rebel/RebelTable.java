@@ -11,6 +11,7 @@ public class RebelTable {
     private String name;
     private Integer age;
     private String gender;
+    private boolean traitor;
     private Long latitude;
     private Long longitude;
     private String galaxyName;
