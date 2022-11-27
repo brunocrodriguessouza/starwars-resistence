@@ -10,4 +10,9 @@ class StarwarsResistenceApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	public void main() {
+		StarwarsResistenceApplication.main(new String[] {});
+	}
+
 }
