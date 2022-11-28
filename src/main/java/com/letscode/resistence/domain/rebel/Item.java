@@ -3,7 +3,7 @@ package com.letscode.resistence.domain.rebel;
 public enum Item {
 
     WEAPON("Weapon", 4),
-    AMMUNITION("ammunition", 3),
+    MUNITION("Munition", 3),
     WATER("Water", 2),
     FOOD("Food", 1);
 

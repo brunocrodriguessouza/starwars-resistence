@@ -20,6 +20,7 @@ public class RebelTable {
     private Long longitude;
     private String galaxyName;
 
+    // TODO change to a new class
     private Map<Item, Integer> inventory;
 }
 
