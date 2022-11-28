@@ -2,6 +2,7 @@ package com.letscode.resistence.usecase;
 
 import com.letscode.resistence.domain.rebel.RebelRepository;
 import com.letscode.resistence.domain.rebel.RebelTable;
+import com.letscode.resistence.usecase.exception.RebelNotFoundException;
 
 import java.util.Optional;
 

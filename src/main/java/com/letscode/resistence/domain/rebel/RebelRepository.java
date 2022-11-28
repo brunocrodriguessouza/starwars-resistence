@@ -10,5 +10,4 @@ public interface RebelRepository {
 
     void updateLocationById(Long id, Long latitude, Long longitude, String name);
 
-    void updateTraitorById(Long id);
 }

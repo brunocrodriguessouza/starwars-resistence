@@ -3,6 +3,7 @@ package com.letscode.resistence.usecase;
 import com.letscode.resistence.domain.rebel.RebelRepository;
 import com.letscode.resistence.domain.rebel.RebelRepositoryInMemory;
 import com.letscode.resistence.domain.rebel.RebelTable;
+import com.letscode.resistence.usecase.exception.RebelNotFoundException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

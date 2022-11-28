@@ -3,7 +3,6 @@ package com.letscode.resistence.domain.rebel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class RebelRepositoryInMemory implements RebelRepository{
 
@@ -35,15 +34,4 @@ public class RebelRepositoryInMemory implements RebelRepository{
        database.add(index, rebel);
     }
 
-    @Override
-    public void updateTraitorById(Long id) {
-        int index = (int) (id - 1);
-
-        RebelTable rebel = database.stream()
-                .filter(rebelTable -> rebelTable.getId().equals(id)).findFirst().get();
-
-        rebel.setTraitor(true);
-
-        database.add(index, rebel);
-    }
 }
