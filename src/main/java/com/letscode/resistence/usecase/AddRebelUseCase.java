@@ -1,10 +1,10 @@
 package com.letscode.resistence.usecase;
 
-import com.letscode.resistence.domain.rebel.Item;
-import com.letscode.resistence.domain.rebel.RebelRepository;
-import com.letscode.resistence.domain.rebel.RebelTable;
+import com.letscode.resistence.domain.rebel.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AddRebelUseCase {
@@ -22,11 +22,13 @@ public class AddRebelUseCase {
 
     private static RebelTable mapToTable(AddRebelInput input) {
 
-        Map<Item, Integer> inventory = new HashMap<>();
-        inventory.put(Item.WEAPON, 1);
-        inventory.put(Item.MUNITION, 1);
-        inventory.put(Item.WATER, 1);
-        inventory.put(Item.FOOD, 1);
+        List<ItemTable> items = new ArrayList<>();
+        items.add(0, ItemTable.builder().id(1L).item(Item.WEAPON).quantity(1L).build());
+        items.add(1, ItemTable.builder().id(1L).item(Item.MUNITION).quantity(1L).build());
+        items.add(2, ItemTable.builder().id(1L).item(Item.WATER).quantity(1L).build());
+        items.add(3, ItemTable.builder().id(1L).item(Item.FOOD).quantity(1L).build());
+
+        InventoryTable inventory = InventoryTable.builder().id(1L).items(items).build();
 
         return RebelTable.builder()
                 .name(input.name())
@@ -41,7 +43,7 @@ public class AddRebelUseCase {
     }
 }
 
-record AddRebelInput(String name, Integer age, String gender, boolean traitor, Long latitude, Long longitude, String galaxyName, Map<Item, Integer> inventory){}
+record AddRebelInput(String name, Integer age, String gender, boolean traitor, Long latitude, Long longitude, String galaxyName){}
 
 
 

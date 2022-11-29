@@ -8,19 +8,14 @@ public enum Item {
     FOOD("Food", 1);
 
     private String itemName;
-    private int value;
+    private Integer value;
 
-    Item(final String itemName, final int value ){
+    Item(final String itemName, final Integer value ){
         this.itemName = itemName;
         this.value = value;
     }
 
-    public String getItemName(){
-        return itemName;
-    }
-
-    public int getValue() {
+    public Integer getValue() {
         return value;
     }
-
 }
