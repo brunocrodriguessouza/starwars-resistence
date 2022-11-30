@@ -28,7 +28,7 @@ public class AddRebelUseCase {
         items.add(2, ItemTable.builder().id(1L).item(Item.WATER).quantity(1L).build());
         items.add(3, ItemTable.builder().id(1L).item(Item.FOOD).quantity(1L).build());
 
-        InventoryTable inventory = InventoryTable.builder().id(1L).items(items).build();
+        InventoryTable inventory = InventoryTable.builder().rebelId(1L).items(items).build();
 
         return RebelTable.builder()
                 .name(input.name())
