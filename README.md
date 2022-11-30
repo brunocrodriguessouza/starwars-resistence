@@ -30,11 +30,11 @@ API REST com Java e Spring Boot, usando DDD(Domain Drive Design) processo seleti
 *"A negociação em si não será armazenada, mas os itens deverão ser transferidos de um rebelde a outro."*
 
 - **Item | Pontos.**<br/>
------------- | -------------
-1 Arma | 4 Pontos
-1 Munição | 3 Pontos
-1 Água | 2 Pontos
-1 Comida | 1 Pontos
+*"------------ | -------------
+*"1 Arma | 4 Pontos."*<br/>
+*"1 Munição | 3 Pontos."*<br/>
+*"1 Água | 2 Pontos."*<br/>
+*"1 Comida | 1 Pontos."*<br/>
 
 - **Relatórios**<br/>
 *"A API deve oferecer os seguintes relatórios:."*<br/>
