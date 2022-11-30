@@ -15,15 +15,16 @@ public class NotificationRepositoryInMemory implements NotificationRepository {
     }
 
     @Override
-    public Stream<NotificationTable> findByRebelId(Long rebelId) {
-        return database.stream()
-                .filter(notificationTable -> notificationTable.getRebelId().equals(rebelId));
-    }
-
-    @Override
     public Optional<NotificationTable> findByRebelIdAndNotifierIdExists(Long rebelId, Long notifierId) {
         return database.stream()
                 .filter(notificationTable -> notificationTable.getRebelId().equals(rebelId)
                         && notificationTable.getNotifierId().equals(notifierId)).findFirst();
+    }
+
+    @Override
+    public long countNotificationByRebelId(Long rebelId) {
+        return database.stream()
+                .filter(notificationTable -> notificationTable.getRebelId().equals(rebelId))
+                .count();
     }
 }

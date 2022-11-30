@@ -34,4 +34,16 @@ public class RebelRepositoryInMemory implements RebelRepository{
        database.add(index, rebel);
     }
 
+    @Override
+    public void updateTraitorById(Long rebelId, boolean isTraitor) {
+        int index = (int) (rebelId - 1);
+
+        RebelTable rebel = database.stream()
+                .filter(rebelTable -> rebelTable.getId().equals(rebelId)).findFirst().get();
+
+        rebel.setTraitor(true);
+
+        database.add(index, rebel);
+    }
+
 }

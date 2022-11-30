@@ -7,7 +7,7 @@ public interface NotificationRepository {
 
     void save(NotificationTable table);
 
-    Stream<NotificationTable> findByRebelId(Long rebelId);
-
     Optional<NotificationTable> findByRebelIdAndNotifierIdExists(Long rebelId, Long notifierId);
+
+    long countNotificationByRebelId(Long rebelId);
 }
