@@ -7,13 +7,17 @@ public class ItemTable {
 
     private Long id;
     private Item item;
-    private Long quantity;
+    private Integer quantity;
 
     public Item getItem() {
         return item;
     }
 
-    public Long getQuantity() {
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Integer getQuantity() {
         return quantity;
     }
 }

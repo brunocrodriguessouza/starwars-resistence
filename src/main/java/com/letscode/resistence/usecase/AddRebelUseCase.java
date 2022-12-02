@@ -3,9 +3,7 @@ package com.letscode.resistence.usecase;
 import com.letscode.resistence.domain.rebel.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class AddRebelUseCase {
 
@@ -22,13 +20,11 @@ public class AddRebelUseCase {
 
     private static RebelTable mapToTable(AddRebelInput input) {
 
-        List<ItemTable> items = new ArrayList<>();
-        items.add(0, ItemTable.builder().id(1L).item(Item.WEAPON).quantity(1L).build());
-        items.add(1, ItemTable.builder().id(1L).item(Item.MUNITION).quantity(1L).build());
-        items.add(2, ItemTable.builder().id(1L).item(Item.WATER).quantity(1L).build());
-        items.add(3, ItemTable.builder().id(1L).item(Item.FOOD).quantity(1L).build());
-
-        InventoryTable inventory = InventoryTable.builder().rebelId(1L).items(items).build();
+        List<ItemTable> inventory = new ArrayList<>();
+        inventory.add(0, ItemTable.builder().id(1L).item(Item.WEAPON).quantity(1).build());
+        inventory.add(1, ItemTable.builder().id(2L).item(Item.MUNITION).quantity(1).build());
+        inventory.add(2, ItemTable.builder().id(3L).item(Item.WATER).quantity(1).build());
+        inventory.add(3, ItemTable.builder().id(4L).item(Item.FOOD).quantity(1).build());
 
         return RebelTable.builder()
                 .name(input.name())

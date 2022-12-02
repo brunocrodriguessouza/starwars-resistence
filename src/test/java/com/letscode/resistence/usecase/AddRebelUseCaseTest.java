@@ -22,6 +22,7 @@ class AddRebelUseCaseTest {
 
         RebelTable rebel = repository.findById(1L).get();
 
+        assertEquals(1L, rebel.getId());
         assertEquals("Gabriel", rebel.getName());
         assertEquals(12, rebel.getAge());
         assertEquals("Male", rebel.getGender());
@@ -30,15 +31,15 @@ class AddRebelUseCaseTest {
         assertEquals("M83", rebel.getGalaxyName());
         assertEquals(false, rebel.isTraitor());
 
-        assertEquals(4, rebel.getInventory().getItems().get(0).getItem().getValue());
-        assertEquals(3, rebel.getInventory().getItems().get(1).getItem().getValue());
-        assertEquals(2, rebel.getInventory().getItems().get(2).getItem().getValue());
-        assertEquals(1, rebel.getInventory().getItems().get(3).getItem().getValue());
+        assertEquals(4, rebel.getInventory().get(0).getItem().getValue());
+        assertEquals(3, rebel.getInventory().get(1).getItem().getValue());
+        assertEquals(2, rebel.getInventory().get(2).getItem().getValue());
+        assertEquals(1, rebel.getInventory().get(3).getItem().getValue());
 
-        assertEquals(1, rebel.getInventory().getItems().get(0).getQuantity());
-        assertEquals(1, rebel.getInventory().getItems().get(1).getQuantity());
-        assertEquals(1, rebel.getInventory().getItems().get(2).getQuantity());
-        assertEquals(1, rebel.getInventory().getItems().get(3).getQuantity());
+        assertEquals(1, rebel.getInventory().get(0).getQuantity());
+        assertEquals(1, rebel.getInventory().get(1).getQuantity());
+        assertEquals(1, rebel.getInventory().get(2).getQuantity());
+        assertEquals(1, rebel.getInventory().get(3).getQuantity());
     }
 
 }
