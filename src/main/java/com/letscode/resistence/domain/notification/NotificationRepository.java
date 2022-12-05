@@ -1,7 +1,6 @@
-package com.letscode.resistence.domain.rebel;
+package com.letscode.resistence.domain.notification;
 
 import java.util.Optional;
-import java.util.stream.Stream;
 
 public interface NotificationRepository {
 

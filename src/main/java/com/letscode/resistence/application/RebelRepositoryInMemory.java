@@ -1,17 +1,21 @@
-package com.letscode.resistence.domain.rebel;
+package com.letscode.resistence.application;
+
+import com.letscode.resistence.domain.rebel.RebelRepository;
+import com.letscode.resistence.domain.rebel.RebelTable;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class RebelRepositoryInMemory implements RebelRepository{
+public class RebelRepositoryInMemory implements RebelRepository {
 
     List<RebelTable> database = new ArrayList<>();
     @Override
-    public void save(RebelTable table) {
+    public RebelTable save(RebelTable table) {
         long id = database.size() + 1;
         table.setId(id);
         database.add(table);
+        return table;
     }
 
     @Override
@@ -21,7 +25,7 @@ public class RebelRepositoryInMemory implements RebelRepository{
     }
 
     @Override
-    public void updateLocationById(Long id, Long latitude, Long longitude, String galaxyName) {
+    public RebelTable updateLocationById(Long id, Long latitude, Long longitude, String galaxyName) {
         int index = (int) (id - 1);
 
         RebelTable rebel = database.stream()
@@ -32,10 +36,11 @@ public class RebelRepositoryInMemory implements RebelRepository{
         rebel.setGalaxyName(galaxyName);
 
        database.add(index, rebel);
+       return rebel;
     }
 
     @Override
-    public void updateTraitorById(Long rebelId, boolean isTraitor) {
+    public RebelTable updateTraitorById(Long rebelId, boolean isTraitor) {
         int index = (int) (rebelId - 1);
 
         RebelTable rebel = database.stream()
@@ -44,6 +49,7 @@ public class RebelRepositoryInMemory implements RebelRepository{
         rebel.setTraitor(true);
 
         database.add(index, rebel);
+        return rebel;
     }
 
 }

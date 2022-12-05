@@ -1,10 +1,14 @@
 package com.letscode.resistence.usecase;
 
+import com.letscode.resistence.domain.Itemtable.Item;
+import com.letscode.resistence.domain.Itemtable.ItemTable;
 import com.letscode.resistence.domain.rebel.*;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class AddRebelUseCase {
 
     public AddRebelUseCase(RebelRepository repository) {
@@ -30,7 +34,7 @@ public class AddRebelUseCase {
                 .name(input.name())
                 .age(input.age())
                 .gender(input.gender())
-                .traitor(input.traitor())
+                .traitor(false)
                 .latitude(input.latitude())
                 .longitude(input.longitude())
                 .galaxyName(input.galaxyName())
@@ -38,8 +42,6 @@ public class AddRebelUseCase {
                 .build();
     }
 }
-
-record AddRebelInput(String name, Integer age, String gender, boolean traitor, Long latitude, Long longitude, String galaxyName){}
 
 
 

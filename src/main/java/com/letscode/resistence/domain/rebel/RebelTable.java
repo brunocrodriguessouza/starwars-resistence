@@ -1,16 +1,26 @@
 package com.letscode.resistence.domain.rebel;
 
+import com.letscode.resistence.domain.Itemtable.ItemTable;
 import com.letscode.resistence.usecase.exception.ItemTableNotFoundException;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Builder
 @Data
+@Entity(name="rebel")
+@NoArgsConstructor
+@AllArgsConstructor
 public class RebelTable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private Integer age;
     private String gender;
@@ -21,6 +31,10 @@ public class RebelTable {
     private Long longitude;
     private String galaxyName;
 
+    @ElementCollection
+//    @Column(name = "inventory")
+//    @OneToOne(optional = false)
+//    @JoinColumn(name = "id")
     private List<ItemTable> inventory;
 
     public void addItem(ItemTable item) {

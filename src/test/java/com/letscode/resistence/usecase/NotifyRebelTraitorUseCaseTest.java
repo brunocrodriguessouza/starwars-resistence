@@ -1,10 +1,12 @@
 package com.letscode.resistence.usecase;
 
+import com.letscode.resistence.application.RebelRepositoryInMemory;
+import com.letscode.resistence.domain.notification.NotificationRepository;
+import com.letscode.resistence.application.NotificationRepositoryInMemory;
+import com.letscode.resistence.domain.notification.NotificationTable;
 import com.letscode.resistence.domain.rebel.*;
 import com.letscode.resistence.usecase.exception.RebelAlreadyNotifiedException;
 import org.junit.jupiter.api.Test;
-
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 

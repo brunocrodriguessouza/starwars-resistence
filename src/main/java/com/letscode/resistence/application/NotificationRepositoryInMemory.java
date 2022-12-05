@@ -1,9 +1,11 @@
-package com.letscode.resistence.domain.rebel;
+package com.letscode.resistence.application;
+
+import com.letscode.resistence.domain.notification.NotificationRepository;
+import com.letscode.resistence.domain.notification.NotificationTable;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 public class NotificationRepositoryInMemory implements NotificationRepository {
 

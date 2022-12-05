@@ -1,5 +1,8 @@
 package com.letscode.resistence.usecase;
 
+import com.letscode.resistence.domain.Itemtable.ItemTable;
+import com.letscode.resistence.domain.TradeItems;
+import com.letscode.resistence.domain.Trader;
 import com.letscode.resistence.domain.rebel.*;
 import com.letscode.resistence.usecase.exception.TradeIsNotAllowedForTheSameIdException;
 import com.letscode.resistence.usecase.exception.TradeItemsDoesNotExistsException;
@@ -45,7 +48,7 @@ public class TradeItemsUseCase {
             rebelRepository.save(rebel1);
             rebelRepository.save(rebel2);
 
-        }catch(Exception e){
+        } catch(Exception e){
             rollbackTrade(rebel1, rebel2, transaction1);
             rollbackTrade(rebel2, rebel1, transaction2);
         }

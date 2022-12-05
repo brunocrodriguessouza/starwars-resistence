@@ -1,4 +1,4 @@
-package com.letscode.resistence.domain.rebel;
+package com.letscode.resistence.domain.Itemtable;
 
 public enum Item {
 

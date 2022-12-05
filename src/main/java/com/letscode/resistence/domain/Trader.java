@@ -1,7 +1,7 @@
-package com.letscode.resistence.domain.rebel;
+package com.letscode.resistence.domain;
 
+import com.letscode.resistence.domain.Itemtable.ItemTable;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 
 import java.util.List;

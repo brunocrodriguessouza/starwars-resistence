@@ -1,15 +1,11 @@
 package com.letscode.resistence.usecase;
 
-import com.letscode.resistence.domain.rebel.Item;
 import com.letscode.resistence.domain.rebel.RebelRepository;
-import com.letscode.resistence.domain.rebel.RebelRepositoryInMemory;
+import com.letscode.resistence.application.RebelRepositoryInMemory;
 import com.letscode.resistence.domain.rebel.RebelTable;
 import org.junit.jupiter.api.Test;
 
-import java.util.Map;
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AddRebelUseCaseTest {
 
@@ -17,7 +13,7 @@ class AddRebelUseCaseTest {
     public void shouldSaveRebel(){
         RebelRepository repository = new RebelRepositoryInMemory();
         AddRebelUseCase addRebelUseCase = new AddRebelUseCase(repository);
-        AddRebelInput input = new AddRebelInput("Gabriel", 12, "Male", false,125L, 123L, "M83");
+        AddRebelInput input = new AddRebelInput("Gabriel", 12, "Male", 125L, 123L, "M83");
         addRebelUseCase.handle(input);
 
         RebelTable rebel = repository.findById(1L).get();

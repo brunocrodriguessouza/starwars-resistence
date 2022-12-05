@@ -4,11 +4,11 @@ import java.util.Optional;
 
 public interface RebelRepository {
 
-    void save(RebelTable table);
+    RebelTable save(RebelTable table);
 
     Optional<RebelTable> findById(Long id);
 
-    void updateLocationById(Long id, Long latitude, Long longitude, String name);
+    RebelTable updateLocationById(Long id, Long latitude, Long longitude, String name);
 
-    void updateTraitorById(Long rebelId, boolean isTraitor);
+    RebelTable updateTraitorById(Long rebelId, boolean isTraitor);
 }

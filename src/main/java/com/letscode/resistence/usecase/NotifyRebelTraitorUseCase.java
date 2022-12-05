@@ -1,7 +1,7 @@
 package com.letscode.resistence.usecase;
 
-import com.letscode.resistence.domain.rebel.NotificationRepository;
-import com.letscode.resistence.domain.rebel.NotificationTable;
+import com.letscode.resistence.domain.notification.NotificationRepository;
+import com.letscode.resistence.domain.notification.NotificationTable;
 import com.letscode.resistence.domain.rebel.RebelRepository;
 import com.letscode.resistence.usecase.exception.RebelAlreadyNotifiedException;
 
@@ -39,5 +39,4 @@ public class NotifyRebelTraitorUseCase {
                 .build();
     }
 }
-
 record NotificationRebelTraitorInput(Long rebelId, Long notifierId){}
