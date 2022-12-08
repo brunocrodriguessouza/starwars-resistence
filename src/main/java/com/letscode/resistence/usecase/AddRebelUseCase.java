@@ -1,6 +1,6 @@
 package com.letscode.resistence.usecase;
 
-import com.letscode.resistence.domain.Itemtable.Item;
+import com.letscode.resistence.domain.Itemtable.ItemEnum;
 import com.letscode.resistence.domain.Itemtable.ItemTable;
 import com.letscode.resistence.domain.rebel.*;
 import org.springframework.stereotype.Service;
@@ -24,13 +24,7 @@ public class AddRebelUseCase {
 
     private static RebelTable mapToTable(AddRebelInput input) {
 
-        List<ItemTable> inventory = new ArrayList<>();
-        inventory.add(0, ItemTable.builder().id(1L).item(Item.WEAPON).quantity(1).build());
-        inventory.add(1, ItemTable.builder().id(2L).item(Item.MUNITION).quantity(1).build());
-        inventory.add(2, ItemTable.builder().id(3L).item(Item.WATER).quantity(1).build());
-        inventory.add(3, ItemTable.builder().id(4L).item(Item.FOOD).quantity(1).build());
-
-        return RebelTable.builder()
+        var rebelTable = RebelTable.builder()
                 .name(input.name())
                 .age(input.age())
                 .gender(input.gender())
@@ -38,8 +32,17 @@ public class AddRebelUseCase {
                 .latitude(input.latitude())
                 .longitude(input.longitude())
                 .galaxyName(input.galaxyName())
-                .inventory(inventory)
                 .build();
+
+        List<ItemTable> inventory = new ArrayList<>();
+        inventory.add(0, ItemTable.builder().itemEnum(ItemEnum.WEAPON).rebel(rebelTable).quantity(1).build());
+        inventory.add(1, ItemTable.builder().itemEnum(ItemEnum.MUNITION).rebel(rebelTable).quantity(1).build());
+        inventory.add(2, ItemTable.builder().itemEnum(ItemEnum.WATER).rebel(rebelTable).quantity(1).build());
+        inventory.add(3, ItemTable.builder().itemEnum(ItemEnum.FOOD).rebel(rebelTable).quantity(1).build());
+
+        rebelTable.setItems(inventory);
+
+        return rebelTable;
     }
 }
 

@@ -1,5 +1,6 @@
 package com.letscode.resistence.application;
 
+import com.letscode.resistence.domain.Itemtable.ItemTable;
 import com.letscode.resistence.domain.rebel.RebelRepository;
 import com.letscode.resistence.domain.rebel.RebelTable;
 import com.letscode.resistence.usecase.exception.RebelNotFoundException;

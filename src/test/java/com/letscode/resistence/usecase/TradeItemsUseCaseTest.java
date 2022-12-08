@@ -1,8 +1,8 @@
 package com.letscode.resistence.usecase;
 
+import com.letscode.resistence.domain.Itemtable.ItemEnum;
 import com.letscode.resistence.domain.TradeItems;
 import com.letscode.resistence.domain.Trader;
-import com.letscode.resistence.domain.Itemtable.Item;
 import com.letscode.resistence.domain.Itemtable.ItemTable;
 import com.letscode.resistence.usecase.exception.TradeIsNotAllowedForTheSameIdException;
 import com.letscode.resistence.usecase.exception.TradeItemsDoesNotExistsException;
@@ -30,7 +30,7 @@ class TradeItemsUseCaseTest {
 
         ItemTable item = ItemTable.builder()
                 .id(1L)
-                .item(Item.FOOD)
+                .itemEnum(ItemEnum.FOOD)
                 .quantity(1)
                 .build();
 
@@ -58,7 +58,7 @@ class TradeItemsUseCaseTest {
 
         ItemTable item1 = ItemTable.builder()
                 .id(1L)
-                .item(Item.FOOD)
+                .itemEnum(ItemEnum.FOOD)
                 .quantity(1)
                 .build();
 
@@ -90,7 +90,7 @@ class TradeItemsUseCaseTest {
 
         ItemTable item1 = ItemTable.builder()
                 .id(1L)
-                .item(Item.FOOD)
+                .itemEnum(ItemEnum.FOOD)
                 .quantity(1)
                 .build();
 

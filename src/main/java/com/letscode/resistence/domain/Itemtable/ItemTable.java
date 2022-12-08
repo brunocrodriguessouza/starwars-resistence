@@ -1,5 +1,6 @@
 package com.letscode.resistence.domain.Itemtable;
 
+import com.letscode.resistence.domain.rebel.RebelTable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -16,13 +17,25 @@ public class ItemTable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne(fetch= FetchType.LAZY)
+    @JoinColumn(name = "rebel_id")
+    private RebelTable rebel;
+
     @Enumerated(EnumType.STRING)
-    @Column(name="item")
-    private Item item;
+    @Column(name="itemEnum")
+    private ItemEnum itemEnum;
     private Integer quantity;
 
-    public Item getItem() {
-        return item;
+    public RebelTable getRebel() {
+        return rebel;
+    }
+
+    public void setRebel(RebelTable rebel) {
+        this.rebel = rebel;
+    }
+
+    public ItemEnum getItemEnum() {
+        return itemEnum;
     }
 
     public void setQuantity(Integer quantity) {

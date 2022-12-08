@@ -27,15 +27,15 @@ class AddRebelUseCaseTest {
         assertEquals("M83", rebel.getGalaxyName());
         assertEquals(false, rebel.isTraitor());
 
-        assertEquals(4, rebel.getInventory().get(0).getItem().getValue());
-        assertEquals(3, rebel.getInventory().get(1).getItem().getValue());
-        assertEquals(2, rebel.getInventory().get(2).getItem().getValue());
-        assertEquals(1, rebel.getInventory().get(3).getItem().getValue());
+        assertEquals(4, rebel.getItems().get(0).getItemEnum().getValue());
+        assertEquals(3, rebel.getItems().get(1).getItemEnum().getValue());
+        assertEquals(2, rebel.getItems().get(2).getItemEnum().getValue());
+        assertEquals(1, rebel.getItems().get(3).getItemEnum().getValue());
 
-        assertEquals(1, rebel.getInventory().get(0).getQuantity());
-        assertEquals(1, rebel.getInventory().get(1).getQuantity());
-        assertEquals(1, rebel.getInventory().get(2).getQuantity());
-        assertEquals(1, rebel.getInventory().get(3).getQuantity());
+        assertEquals(1, rebel.getItems().get(0).getQuantity());
+        assertEquals(1, rebel.getItems().get(1).getQuantity());
+        assertEquals(1, rebel.getItems().get(2).getQuantity());
+        assertEquals(1, rebel.getItems().get(3).getQuantity());
     }
 
 }

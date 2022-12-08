@@ -11,4 +11,5 @@ public interface RebelRepository {
     RebelTable updateLocationById(Long id, Long latitude, Long longitude, String name);
 
     RebelTable updateTraitorById(Long rebelId, boolean isTraitor);
+
 }

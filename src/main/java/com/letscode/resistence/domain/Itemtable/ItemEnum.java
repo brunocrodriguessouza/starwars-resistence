@@ -1,6 +1,6 @@
 package com.letscode.resistence.domain.Itemtable;
 
-public enum Item {
+public enum ItemEnum {
 
     WEAPON("Weapon", 4),
     MUNITION("Munition", 3),
@@ -10,7 +10,7 @@ public enum Item {
     private String itemName;
     private Integer value;
 
-    Item(final String itemName, final Integer value ){
+    ItemEnum(final String itemName, final Integer value ){
         this.itemName = itemName;
         this.value = value;
     }

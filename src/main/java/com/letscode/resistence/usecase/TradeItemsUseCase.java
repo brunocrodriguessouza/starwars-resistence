@@ -57,8 +57,8 @@ public class TradeItemsUseCase {
 
     private void applyTrade(Trader trader, RebelTable rebel1, RebelTable rebel2, Trader transaction) {
         for(ItemTable item: trader.getItems()){
-            var itemTable = rebel1.getInventory().stream()
-                    .filter(it -> it.getItem().equals(item.getItem())).findFirst().orElseThrow(TradeItemsWithInvalidQuantityException::new);
+            var itemTable = rebel1.getItems().stream()
+                    .filter(it -> it.getItemEnum().equals(item.getItemEnum())).findFirst().orElseThrow(TradeItemsWithInvalidQuantityException::new);
             if(itemTable.getQuantity() >= item.getQuantity()){
                 rebel2.addItem(item);
                 rebel1.remove(item);
@@ -82,7 +82,7 @@ public class TradeItemsUseCase {
 
     private Integer getTotalTrade(Trader trader) {
         return trader.getItems().stream()
-                .map(itemTable -> itemTable.getItem().getValue() * itemTable.getQuantity())
+                .map(itemTable -> itemTable.getItemEnum().getValue() * itemTable.getQuantity())
                 .reduce(0, Integer::sum);
     }
 }
