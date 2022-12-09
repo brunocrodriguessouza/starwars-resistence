@@ -1,6 +1,5 @@
 package com.letscode.resistence.application;
 
-import com.letscode.resistence.domain.rebel.LocationTable;
 import com.letscode.resistence.domain.rebel.RebelRepository;
 import com.letscode.resistence.domain.rebel.RebelTable;
 
@@ -25,18 +24,6 @@ public class RebelRepositoryInMemory implements RebelRepository {
                 .filter(rebelTable -> rebelTable.getId().equals(id)).findFirst();
     }
 
-    @Override
-    public RebelTable updateLocationById(Long id, LocationTable location) {
-        int index = (int) (id - 1);
-
-        RebelTable rebel = database.stream()
-                .filter(rebelTable -> rebelTable.getId().equals(id)).findFirst().get();
-
-        rebel.setLocation(location);
-
-       database.add(index, rebel);
-       return rebel;
-    }
 
     @Override
     public RebelTable updateTraitorById(Long rebelId, boolean isTraitor) {

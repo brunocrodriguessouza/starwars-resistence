@@ -1,27 +1,22 @@
 package com.letscode.resistence.domain.rebel;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.letscode.resistence.domain.Itemtable.ItemTable;
 import com.letscode.resistence.usecase.exception.ItemTableNotFoundException;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 import static javax.persistence.FetchType.LAZY;
 
 @Builder
-@Data
+@Getter
+@Setter
 @Entity(name="rebel")
 @NoArgsConstructor
 @AllArgsConstructor
-public class RebelTable implements Serializable {
+public class RebelTable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,12 +25,15 @@ public class RebelTable implements Serializable {
 
     private String name;
     private Integer age;
-    private String gender;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="gender")
+    private GenderEnum gender;
     private boolean traitor;
 
-    @OneToOne(fetch = LAZY, mappedBy = "rebel", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "rebel")
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private LocationTable location;
+    private LocalizationTable location;
 
     @OneToMany(fetch = LAZY, mappedBy = "rebel", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonInclude(JsonInclude.Include.NON_NULL)

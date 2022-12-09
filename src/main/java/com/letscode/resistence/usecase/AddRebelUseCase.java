@@ -24,7 +24,7 @@ public class AddRebelUseCase {
 
     private static RebelTable mapToTable(AddRebelInput input) {
 
-        var location = LocationTable.builder()
+        var location = LocalizationTable.builder()
                 .latitude(input.latitude())
                 .longitude(input.longitude())
                 .galaxyName(input.galaxyName())

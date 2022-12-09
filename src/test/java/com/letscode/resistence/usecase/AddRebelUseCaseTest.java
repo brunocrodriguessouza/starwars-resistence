@@ -1,5 +1,6 @@
 package com.letscode.resistence.usecase;
 
+import com.letscode.resistence.domain.rebel.GenderEnum;
 import com.letscode.resistence.domain.rebel.RebelRepository;
 import com.letscode.resistence.application.RebelRepositoryInMemory;
 import com.letscode.resistence.domain.rebel.RebelTable;
@@ -13,7 +14,7 @@ class AddRebelUseCaseTest {
     public void shouldSaveRebel(){
         RebelRepository repository = new RebelRepositoryInMemory();
         AddRebelUseCase addRebelUseCase = new AddRebelUseCase(repository);
-        AddRebelInput input = new AddRebelInput("Gabriel", 12, "Male", 125L, 123L, "M83");
+        AddRebelInput input = new AddRebelInput("Gabriel", 12, GenderEnum.MALE, 125L, 123L, "M83");
         addRebelUseCase.handle(input);
 
         RebelTable rebel = repository.findById(1L).get();
@@ -21,7 +22,7 @@ class AddRebelUseCaseTest {
         assertEquals(1L, rebel.getId());
         assertEquals("Gabriel", rebel.getName());
         assertEquals(12, rebel.getAge());
-        assertEquals("Male", rebel.getGender());
+        assertEquals(GenderEnum.MALE, rebel.getGender());
         assertEquals(125L, rebel.getLocation().getLatitude());
         assertEquals(123L, rebel.getLocation().getLongitude());
         assertEquals("M83", rebel.getLocation().getGalaxyName());

@@ -1,6 +1,5 @@
 package com.letscode.resistence.domain;
 
-import com.letscode.resistence.domain.Trader;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

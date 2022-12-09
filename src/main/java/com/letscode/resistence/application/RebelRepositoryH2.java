@@ -1,7 +1,5 @@
 package com.letscode.resistence.application;
 
-import com.letscode.resistence.domain.Itemtable.ItemTable;
-import com.letscode.resistence.domain.rebel.LocationTable;
 import com.letscode.resistence.domain.rebel.RebelRepository;
 import com.letscode.resistence.domain.rebel.RebelTable;
 import com.letscode.resistence.usecase.exception.RebelNotFoundException;
@@ -30,13 +28,6 @@ public class RebelRepositoryH2 implements RebelRepository {
     @Override
     public Optional<RebelTable> findById(Long id) {
         return adapter.findById(id);
-    }
-
-    @Override
-    public RebelTable updateLocationById(Long id, LocationTable location) {
-        var rebel = findById(id).orElseThrow((RebelNotFoundException::new));
-        rebel.setLocation(location);
-        return adapter.save(rebel);
     }
 
     @Override

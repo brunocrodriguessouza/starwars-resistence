@@ -1,10 +1,8 @@
 package com.letscode.resistence.application.http.controller;
 
-import com.letscode.resistence.domain.rebel.LocationTable;
 import com.letscode.resistence.domain.rebel.RebelTable;
 import com.letscode.resistence.usecase.AddRebelInput;
 import com.letscode.resistence.usecase.AddRebelUseCase;
-import com.letscode.resistence.usecase.UpdateLocationInput;
 import com.letscode.resistence.usecase.UpdateRebelLocationUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,16 +37,7 @@ public class RebelController{
         );
 
         addRebelUseCase.handle(input);
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(rebelTable);
+        return ResponseEntity.status(HttpStatus.CREATED).body(rebelTable);
     }
 
-    @PutMapping("/rebel/{id}")
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public ResponseEntity<RebelTable> updateLoRebelLocation(@RequestBody LocationTable location, @PathVariable("id") Long id ){
-
-        var input = new UpdateLocationInput(id, location);
-        RebelTable rebelTable = updateRebelLocationUseCase.handle(input);
-
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(rebelTable);
-    }
 }

@@ -2,27 +2,26 @@ package com.letscode.resistence.domain.rebel;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Builder
-@Data
-@Entity(name="location")
+@Getter
+@Setter
+@Entity(name="localization")
 @NoArgsConstructor
 @AllArgsConstructor
-public class LocationTable {
+public class LocalizationTable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "rebel_id")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private RebelTable rebel;
 
     private Long latitude;
