@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class UpdateRebelLocationUseCase {
+public class UpdateRebelLocalizationUseCase {
 
     private LocalizationRepository repository;
 
-    public UpdateRebelLocationUseCase(LocalizationRepository repository) {
+    public UpdateRebelLocalizationUseCase(LocalizationRepository repository) {
         this.repository = repository;
     }
 
-    public void handle(UpdateLocationInput input){
+    public void handle(UpdateLocalizationInput input){
 
         Optional<LocalizationTable> table = repository.findByRebelId(input.idRebel());
 

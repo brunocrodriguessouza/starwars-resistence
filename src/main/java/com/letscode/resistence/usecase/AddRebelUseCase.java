@@ -46,7 +46,7 @@ public class AddRebelUseCase {
         rebelTable.setItems(inventory);
 
         location.setRebel(rebelTable);
-        rebelTable.setLocation(location);
+        rebelTable.setLocalization(location);
 
         return rebelTable;
     }

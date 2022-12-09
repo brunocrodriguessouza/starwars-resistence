@@ -3,7 +3,7 @@ package com.letscode.resistence.application.http.controller;
 import com.letscode.resistence.domain.rebel.RebelTable;
 import com.letscode.resistence.usecase.AddRebelInput;
 import com.letscode.resistence.usecase.AddRebelUseCase;
-import com.letscode.resistence.usecase.UpdateRebelLocationUseCase;
+import com.letscode.resistence.usecase.UpdateRebelLocalizationUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.*;
 public class RebelController{
 
     private final AddRebelUseCase addRebelUseCase;
-    private final UpdateRebelLocationUseCase updateRebelLocationUseCase;
+    private final UpdateRebelLocalizationUseCase updateRebelLocalizationUseCase;
 
     @Autowired
-    public RebelController(AddRebelUseCase addRebelUseCase, UpdateRebelLocationUseCase updateRebelLocationUseCase){
+    public RebelController(AddRebelUseCase addRebelUseCase, UpdateRebelLocalizationUseCase updateRebelLocalizationUseCase){
         this.addRebelUseCase = addRebelUseCase;
-        this.updateRebelLocationUseCase = updateRebelLocationUseCase;
+        this.updateRebelLocalizationUseCase = updateRebelLocalizationUseCase;
     }
 
     @PostMapping(value = "/rebel")
@@ -31,9 +31,9 @@ public class RebelController{
                 rebelTable.getName(),
                 rebelTable.getAge(),
                 rebelTable.getGender(),
-                rebelTable.getLocation().getLatitude(),
-                rebelTable.getLocation().getLongitude(),
-                rebelTable.getLocation().getGalaxyName()
+                rebelTable.getLocalization().getLatitude(),
+                rebelTable.getLocalization().getLongitude(),
+                rebelTable.getLocalization().getGalaxyName()
         );
 
         addRebelUseCase.handle(input);

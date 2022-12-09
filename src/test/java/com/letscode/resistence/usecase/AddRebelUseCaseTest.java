@@ -23,9 +23,9 @@ class AddRebelUseCaseTest {
         assertEquals("Gabriel", rebel.getName());
         assertEquals(12, rebel.getAge());
         assertEquals(GenderEnum.MALE, rebel.getGender());
-        assertEquals(125L, rebel.getLocation().getLatitude());
-        assertEquals(123L, rebel.getLocation().getLongitude());
-        assertEquals("M83", rebel.getLocation().getGalaxyName());
+        assertEquals(125L, rebel.getLocalization().getLatitude());
+        assertEquals(123L, rebel.getLocalization().getLongitude());
+        assertEquals("M83", rebel.getLocalization().getGalaxyName());
         assertEquals(false, rebel.isTraitor());
 
         assertEquals(4, rebel.getItems().get(0).getItemEnum().getValue());

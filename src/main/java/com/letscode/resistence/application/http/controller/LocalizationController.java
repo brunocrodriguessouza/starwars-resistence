@@ -1,8 +1,8 @@
 package com.letscode.resistence.application.http.controller;
 
 import com.letscode.resistence.domain.rebel.LocalizationTable;
-import com.letscode.resistence.usecase.UpdateLocationInput;
-import com.letscode.resistence.usecase.UpdateRebelLocationUseCase;
+import com.letscode.resistence.usecase.UpdateLocalizationInput;
+import com.letscode.resistence.usecase.UpdateRebelLocalizationUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/resistence")
 public class LocalizationController {
 
-    private final UpdateRebelLocationUseCase updateRebelLocationUseCase;
+    private final UpdateRebelLocalizationUseCase updateRebelLocalizationUseCase;
 
     @Autowired
-    public LocalizationController(UpdateRebelLocationUseCase updateRebelLocationUseCase){
-        this.updateRebelLocationUseCase = updateRebelLocationUseCase;
+    public LocalizationController(UpdateRebelLocalizationUseCase updateRebelLocalizationUseCase){
+        this.updateRebelLocalizationUseCase = updateRebelLocalizationUseCase;
     }
 
     @PutMapping("/rebel/{id}")
     @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public void updateRebelLocation(@RequestBody LocalizationTable location, @PathVariable("id") Long id ){
+    public void updateRebelLocalization(@RequestBody LocalizationTable location, @PathVariable("id") Long id ){
 
-        var input = new UpdateLocationInput(id, location);
-        updateRebelLocationUseCase.handle(input);
+        var input = new UpdateLocalizationInput(id, location);
+        updateRebelLocalizationUseCase.handle(input);
 
         ResponseEntity.status(HttpStatus.CREATED).body("Successfully changed");
     }

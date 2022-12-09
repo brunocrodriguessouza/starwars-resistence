@@ -33,7 +33,7 @@ public class RebelTable{
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "rebel")
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private LocalizationTable location;
+    private LocalizationTable localization;
 
     @OneToMany(fetch = LAZY, mappedBy = "rebel", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonInclude(JsonInclude.Include.NON_NULL)

@@ -14,10 +14,10 @@ import java.util.Optional;
 @Component
 public class LocalizationRepositoryH2 implements LocalizationRepository {
 
-    private final LocationRepositorySpringAdapter adapter;
+    private final LocalizationRepositorySpringAdapter adapter;
 
     @Autowired
-    public LocalizationRepositoryH2(LocationRepositorySpringAdapter adapter){
+    public LocalizationRepositoryH2(LocalizationRepositorySpringAdapter adapter){
         this.adapter = adapter;
     }
 
@@ -39,7 +39,7 @@ public class LocalizationRepositoryH2 implements LocalizationRepository {
 }
 
 @Repository
-interface LocationRepositorySpringAdapter extends JpaRepository<LocalizationTable, Long>{
+interface LocalizationRepositorySpringAdapter extends JpaRepository<LocalizationTable, Long>{
     Optional<LocalizationTable> findByRebelId(Long id);
 
     @Modifying

@@ -15,7 +15,7 @@ class UpdateRebelLocalizationUseCaseTest {
     @Test
     public void shouldThrowExceptionWhenLocalizationNotFound(){
        LocalizationRepository repository = new LocalizationRepositoryInMemory();
-        UpdateRebelLocationUseCase useCase = new UpdateRebelLocationUseCase(repository);
+        UpdateRebelLocalizationUseCase useCase = new UpdateRebelLocalizationUseCase(repository);
 
         LocalizationTable location = LocalizationTable.builder()
                 .latitude(132L)
@@ -23,14 +23,14 @@ class UpdateRebelLocalizationUseCaseTest {
                 .galaxyName("M83")
                 .build();
 
-        UpdateLocationInput input = new UpdateLocationInput(1L, location);
+        UpdateLocalizationInput input = new UpdateLocalizationInput(1L, location);
         assertThrows(RebelNotFoundException.class, () -> useCase.handle(input));
     }
 
     @Test
-    public void shouldUpdateLocation(){
+    public void shouldUpdateLocalization(){
         LocalizationRepository repository = new LocalizationRepositoryInMemory();
-        UpdateRebelLocationUseCase useCase = new UpdateRebelLocationUseCase(repository);
+        UpdateRebelLocalizationUseCase useCase = new UpdateRebelLocalizationUseCase(repository);
 
         LocalizationTable localization = LocalizationTable.builder()
                 .rebel(RebelTable.builder().id(1L).build())
@@ -49,7 +49,7 @@ class UpdateRebelLocalizationUseCaseTest {
                 .galaxyName("M85")
                 .build();
 
-        UpdateLocationInput input = new UpdateLocationInput(1L, locationToUpdate);
+        UpdateLocalizationInput input = new UpdateLocalizationInput(1L, locationToUpdate);
         useCase.handle(input);
 
         assertEquals(-1234L, localization.getLatitude());
