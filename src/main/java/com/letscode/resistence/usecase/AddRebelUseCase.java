@@ -24,14 +24,17 @@ public class AddRebelUseCase {
 
     private static RebelTable mapToTable(AddRebelInput input) {
 
+        var location = LocationTable.builder()
+                .latitude(input.latitude())
+                .longitude(input.longitude())
+                .galaxyName(input.galaxyName())
+                .build();
+
         var rebelTable = RebelTable.builder()
                 .name(input.name())
                 .age(input.age())
                 .gender(input.gender())
                 .traitor(false)
-                .latitude(input.latitude())
-                .longitude(input.longitude())
-                .galaxyName(input.galaxyName())
                 .build();
 
         List<ItemTable> inventory = new ArrayList<>();
@@ -41,6 +44,9 @@ public class AddRebelUseCase {
         inventory.add(3, ItemTable.builder().itemEnum(ItemEnum.FOOD).rebel(rebelTable).quantity(1).build());
 
         rebelTable.setItems(inventory);
+
+        location.setRebel(rebelTable);
+        rebelTable.setLocation(location);
 
         return rebelTable;
     }

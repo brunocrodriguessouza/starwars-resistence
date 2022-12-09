@@ -1,5 +1,6 @@
 package com.letscode.resistence.application;
 
+import com.letscode.resistence.domain.rebel.LocationTable;
 import com.letscode.resistence.domain.rebel.RebelRepository;
 import com.letscode.resistence.domain.rebel.RebelTable;
 
@@ -25,15 +26,13 @@ public class RebelRepositoryInMemory implements RebelRepository {
     }
 
     @Override
-    public RebelTable updateLocationById(Long id, Long latitude, Long longitude, String galaxyName) {
+    public RebelTable updateLocationById(Long id, LocationTable location) {
         int index = (int) (id - 1);
 
         RebelTable rebel = database.stream()
                 .filter(rebelTable -> rebelTable.getId().equals(id)).findFirst().get();
 
-        rebel.setLatitude(latitude);
-        rebel.setLongitude(longitude);
-        rebel.setGalaxyName(galaxyName);
+        rebel.setLocation(location);
 
        database.add(index, rebel);
        return rebel;

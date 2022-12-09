@@ -11,6 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 import static javax.persistence.FetchType.LAZY;
@@ -20,7 +21,7 @@ import static javax.persistence.FetchType.LAZY;
 @Entity(name="rebel")
 @NoArgsConstructor
 @AllArgsConstructor
-public class RebelTable {
+public class RebelTable implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,12 +33,9 @@ public class RebelTable {
     private String gender;
     private boolean traitor;
 
-    // TODO change to a new class
-    private Long latitude;
-    private Long longitude;
-
-    @JsonProperty(value = "galaxy_name")
-    private String galaxyName;
+    @OneToOne(fetch = LAZY, mappedBy = "rebel", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private LocationTable location;
 
     @OneToMany(fetch = LAZY, mappedBy = "rebel", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonInclude(JsonInclude.Include.NON_NULL)

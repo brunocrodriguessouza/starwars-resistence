@@ -8,7 +8,7 @@ public interface RebelRepository {
 
     Optional<RebelTable> findById(Long id);
 
-    RebelTable updateLocationById(Long id, Long latitude, Long longitude, String name);
+    RebelTable updateLocationById(Long id, LocationTable location);
 
     RebelTable updateTraitorById(Long rebelId, boolean isTraitor);
 

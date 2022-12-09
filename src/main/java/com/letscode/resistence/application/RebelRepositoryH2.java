@@ -1,6 +1,7 @@
 package com.letscode.resistence.application;
 
 import com.letscode.resistence.domain.Itemtable.ItemTable;
+import com.letscode.resistence.domain.rebel.LocationTable;
 import com.letscode.resistence.domain.rebel.RebelRepository;
 import com.letscode.resistence.domain.rebel.RebelTable;
 import com.letscode.resistence.usecase.exception.RebelNotFoundException;
@@ -32,11 +33,9 @@ public class RebelRepositoryH2 implements RebelRepository {
     }
 
     @Override
-    public RebelTable updateLocationById(Long id, Long latitude, Long longitude, String galaxyName) {
+    public RebelTable updateLocationById(Long id, LocationTable location) {
         var rebel = findById(id).orElseThrow((RebelNotFoundException::new));
-        rebel.setLatitude(latitude);
-        rebel.setLongitude(longitude);
-        rebel.setGalaxyName(galaxyName);
+        rebel.setLocation(location);
         return adapter.save(rebel);
     }
 
