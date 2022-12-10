@@ -1,4 +1,4 @@
-package com.letscode.resistence.application;
+package com.letscode.resistence.application.repository.rebel;
 
 import com.letscode.resistence.domain.rebel.RebelRepository;
 import com.letscode.resistence.domain.rebel.RebelTable;

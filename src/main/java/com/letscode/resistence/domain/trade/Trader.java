@@ -1,4 +1,4 @@
-package com.letscode.resistence.domain;
+package com.letscode.resistence.domain.trade;
 
 import com.letscode.resistence.domain.Itemtable.ItemTable;
 import lombok.Builder;

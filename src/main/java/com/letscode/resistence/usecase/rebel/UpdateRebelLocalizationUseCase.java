@@ -1,7 +1,8 @@
-package com.letscode.resistence.usecase;
+package com.letscode.resistence.usecase.rebel;
 
 import com.letscode.resistence.domain.rebel.*;
 import com.letscode.resistence.usecase.exception.RebelNotFoundException;
+import com.letscode.resistence.usecase.rebel.UpdateRebelLocalizationInput;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -15,7 +16,7 @@ public class UpdateRebelLocalizationUseCase {
         this.repository = repository;
     }
 
-    public void handle(UpdateLocalizationInput input){
+    public void handle(UpdateRebelLocalizationInput input){
 
         Optional<LocalizationTable> table = repository.findByRebelId(input.idRebel());
 

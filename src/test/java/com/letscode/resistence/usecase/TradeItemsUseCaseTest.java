@@ -1,12 +1,14 @@
 package com.letscode.resistence.usecase;
 
 import com.letscode.resistence.domain.Itemtable.ItemEnum;
-import com.letscode.resistence.domain.TradeItems;
-import com.letscode.resistence.domain.Trader;
+import com.letscode.resistence.domain.trade.TradeItems;
+import com.letscode.resistence.domain.trade.Trader;
 import com.letscode.resistence.domain.Itemtable.ItemTable;
 import com.letscode.resistence.usecase.exception.TradeIsNotAllowedForTheSameIdException;
 import com.letscode.resistence.usecase.exception.TradeItemsDoesNotExistsException;
 import com.letscode.resistence.usecase.exception.TradeItemsWithInvalidQuantityException;
+import com.letscode.resistence.usecase.trade.TradeItemsInput;
+import com.letscode.resistence.usecase.trade.TradeItemsUseCase;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

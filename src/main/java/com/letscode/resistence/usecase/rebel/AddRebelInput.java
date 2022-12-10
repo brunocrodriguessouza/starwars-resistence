@@ -1,4 +1,4 @@
-package com.letscode.resistence.usecase;
+package com.letscode.resistence.usecase.rebel;
 
 import com.letscode.resistence.domain.rebel.GenderEnum;
 

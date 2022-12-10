@@ -1,4 +1,4 @@
-package com.letscode.resistence.application;
+package com.letscode.resistence.application.repository.localization;
 
 import com.letscode.resistence.domain.rebel.*;
 import org.springframework.beans.factory.annotation.Autowired;

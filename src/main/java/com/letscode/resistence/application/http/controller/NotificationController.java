@@ -1,8 +1,8 @@
 package com.letscode.resistence.application.http.controller;
 
 import com.letscode.resistence.domain.notification.NotificationTable;
-import com.letscode.resistence.domain.rebel.RebelTable;
-import com.letscode.resistence.usecase.*;
+import com.letscode.resistence.usecase.notification.NotifyRebelTraitorInput;
+import com.letscode.resistence.usecase.notification.NotifyRebelTraitorUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +28,7 @@ public class NotificationController {
     @PostMapping(value = "/rebel/notification")
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public ResponseEntity<String> notifyRebelTraitor(@RequestBody NotificationTable notificationTable){
-        var input = new NotificationRebelTraitorInput(notificationTable.getRebelId(), notificationTable.getNotifierId());
+        var input = new NotifyRebelTraitorInput(notificationTable.getRebelId(), notificationTable.getNotifierId());
 
         notifyRebelTraitorUseCase.handle(input);
 

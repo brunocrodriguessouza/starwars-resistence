@@ -1,10 +1,7 @@
-package com.letscode.resistence.application;
+package com.letscode.resistence.application.repository.notification;
 
 import com.letscode.resistence.domain.notification.NotificationRepository;
 import com.letscode.resistence.domain.notification.NotificationTable;
-import com.letscode.resistence.domain.rebel.RebelRepository;
-import com.letscode.resistence.domain.rebel.RebelTable;
-import com.letscode.resistence.usecase.exception.RebelNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;

@@ -1,10 +1,12 @@
 package com.letscode.resistence.usecase;
 
-import com.letscode.resistence.application.LocalizationRepositoryInMemory;
+import com.letscode.resistence.application.repository.localization.LocalizationRepositoryInMemory;
 import com.letscode.resistence.domain.rebel.LocalizationRepository;
 import com.letscode.resistence.domain.rebel.LocalizationTable;
 import com.letscode.resistence.domain.rebel.RebelTable;
 import com.letscode.resistence.usecase.exception.RebelNotFoundException;
+import com.letscode.resistence.usecase.rebel.UpdateRebelLocalizationInput;
+import com.letscode.resistence.usecase.rebel.UpdateRebelLocalizationUseCase;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,7 +25,7 @@ class UpdateRebelLocalizationUseCaseTest {
                 .galaxyName("M83")
                 .build();
 
-        UpdateLocalizationInput input = new UpdateLocalizationInput(1L, location);
+        UpdateRebelLocalizationInput input = new UpdateRebelLocalizationInput(1L, location);
         assertThrows(RebelNotFoundException.class, () -> useCase.handle(input));
     }
 
@@ -49,7 +51,7 @@ class UpdateRebelLocalizationUseCaseTest {
                 .galaxyName("M85")
                 .build();
 
-        UpdateLocalizationInput input = new UpdateLocalizationInput(1L, locationToUpdate);
+        UpdateRebelLocalizationInput input = new UpdateRebelLocalizationInput(1L, locationToUpdate);
         useCase.handle(input);
 
         assertEquals(-1234L, localization.getLatitude());

@@ -1,11 +1,13 @@
 package com.letscode.resistence.usecase;
 
-import com.letscode.resistence.application.RebelRepositoryInMemory;
+import com.letscode.resistence.application.repository.rebel.RebelRepositoryInMemory;
 import com.letscode.resistence.domain.notification.NotificationRepository;
-import com.letscode.resistence.application.NotificationRepositoryInMemory;
+import com.letscode.resistence.application.repository.notification.NotificationRepositoryInMemory;
 import com.letscode.resistence.domain.notification.NotificationTable;
 import com.letscode.resistence.domain.rebel.*;
 import com.letscode.resistence.usecase.exception.RebelAlreadyNotifiedException;
+import com.letscode.resistence.usecase.notification.NotifyRebelTraitorInput;
+import com.letscode.resistence.usecase.notification.NotifyRebelTraitorUseCase;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,7 +27,7 @@ class NotifyRebelTraitorUseCaseTest {
 
         repository.save(notification);
 
-        NotificationRebelTraitorInput input = new NotificationRebelTraitorInput(1L, 2L);
+        NotifyRebelTraitorInput input = new NotifyRebelTraitorInput(1L, 2L);
         assertThrows(RebelAlreadyNotifiedException.class, () -> useCase.handle(input));
     }
 
@@ -35,7 +37,7 @@ class NotifyRebelTraitorUseCaseTest {
         RebelRepository rebelRepository = new RebelRepositoryInMemory();
         NotifyRebelTraitorUseCase useCase = new NotifyRebelTraitorUseCase(repository, rebelRepository);
 
-        NotificationRebelTraitorInput input = new NotificationRebelTraitorInput(1L, 2L);
+        NotifyRebelTraitorInput input = new NotifyRebelTraitorInput(1L, 2L);
         useCase.handle(input);
 
         NotificationTable notification = repository.findByRebelIdAndNotifierIdExists(1L, 2l).get();
@@ -54,13 +56,13 @@ class NotifyRebelTraitorUseCaseTest {
 
         NotifyRebelTraitorUseCase useCase = new NotifyRebelTraitorUseCase(repository, rebelRepository);
 
-        NotificationRebelTraitorInput input = new NotificationRebelTraitorInput(1L, 2L);
+        NotifyRebelTraitorInput input = new NotifyRebelTraitorInput(1L, 2L);
         useCase.handle(input);
 
-        NotificationRebelTraitorInput input2 = new NotificationRebelTraitorInput(1L, 3L);
+        NotifyRebelTraitorInput input2 = new NotifyRebelTraitorInput(1L, 3L);
         useCase.handle(input2);
 
-        NotificationRebelTraitorInput input3 = new NotificationRebelTraitorInput(1L, 4L);
+        NotifyRebelTraitorInput input3 = new NotifyRebelTraitorInput(1L, 4L);
         useCase.handle(input3);
 
         NotificationTable notification = repository.findByRebelIdAndNotifierIdExists(1L, 2l).get();

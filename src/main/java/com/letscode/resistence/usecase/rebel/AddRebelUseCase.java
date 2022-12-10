@@ -1,8 +1,9 @@
-package com.letscode.resistence.usecase;
+package com.letscode.resistence.usecase.rebel;
 
 import com.letscode.resistence.domain.Itemtable.ItemEnum;
 import com.letscode.resistence.domain.Itemtable.ItemTable;
 import com.letscode.resistence.domain.rebel.*;
+import com.letscode.resistence.usecase.rebel.AddRebelInput;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

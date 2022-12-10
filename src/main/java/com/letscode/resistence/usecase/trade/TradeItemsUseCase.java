@@ -1,12 +1,13 @@
-package com.letscode.resistence.usecase;
+package com.letscode.resistence.usecase.trade;
 
 import com.letscode.resistence.domain.Itemtable.ItemTable;
-import com.letscode.resistence.domain.TradeItems;
-import com.letscode.resistence.domain.Trader;
+import com.letscode.resistence.domain.trade.TradeItems;
+import com.letscode.resistence.domain.trade.Trader;
 import com.letscode.resistence.domain.rebel.*;
 import com.letscode.resistence.usecase.exception.TradeIsNotAllowedForTheSameIdException;
 import com.letscode.resistence.usecase.exception.TradeItemsDoesNotExistsException;
 import com.letscode.resistence.usecase.exception.TradeItemsWithInvalidQuantityException;
+import com.letscode.resistence.usecase.trade.TradeItemsInput;
 
 public class TradeItemsUseCase {
 
@@ -86,6 +87,4 @@ public class TradeItemsUseCase {
                 .reduce(0, Integer::sum);
     }
 }
-
-record TradeItemsInput(TradeItems tradeItems){}
 

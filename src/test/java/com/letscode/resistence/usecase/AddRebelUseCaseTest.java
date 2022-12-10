@@ -2,8 +2,10 @@ package com.letscode.resistence.usecase;
 
 import com.letscode.resistence.domain.rebel.GenderEnum;
 import com.letscode.resistence.domain.rebel.RebelRepository;
-import com.letscode.resistence.application.RebelRepositoryInMemory;
+import com.letscode.resistence.application.repository.rebel.RebelRepositoryInMemory;
 import com.letscode.resistence.domain.rebel.RebelTable;
+import com.letscode.resistence.usecase.rebel.AddRebelInput;
+import com.letscode.resistence.usecase.rebel.AddRebelUseCase;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

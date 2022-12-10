@@ -1,9 +1,10 @@
-package com.letscode.resistence.usecase;
+package com.letscode.resistence.usecase.notification;
 
 import com.letscode.resistence.domain.notification.NotificationRepository;
 import com.letscode.resistence.domain.notification.NotificationTable;
 import com.letscode.resistence.domain.rebel.RebelRepository;
 import com.letscode.resistence.usecase.exception.RebelAlreadyNotifiedException;
+import com.letscode.resistence.usecase.notification.NotifyRebelTraitorInput;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -19,7 +20,7 @@ public class NotifyRebelTraitorUseCase {
         this.rebelRepository = rebelRepository;
     }
 
-    public void handle(NotificationRebelTraitorInput input){
+    public void handle(NotifyRebelTraitorInput input){
         Optional<NotificationTable> notification =  repository.findByRebelIdAndNotifierIdExists(input.rebelId(), input.notifierId());
         notification.ifPresent(n -> {
             throw new RebelAlreadyNotifiedException();
@@ -34,7 +35,7 @@ public class NotifyRebelTraitorUseCase {
         }
     }
 
-    private static NotificationTable mapToTable(NotificationRebelTraitorInput input){
+    private static NotificationTable mapToTable(NotifyRebelTraitorInput input){
         return NotificationTable.builder()
                 .rebelId(input.rebelId())
                 .notifierId(input.notifierId())

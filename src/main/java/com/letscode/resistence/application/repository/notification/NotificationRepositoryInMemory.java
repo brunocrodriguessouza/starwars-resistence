@@ -1,4 +1,4 @@
-package com.letscode.resistence.application;
+package com.letscode.resistence.application.repository.notification;
 
 import com.letscode.resistence.domain.notification.NotificationRepository;
 import com.letscode.resistence.domain.notification.NotificationTable;

@@ -1,9 +1,9 @@
 package com.letscode.resistence.application.http.controller;
 
 import com.letscode.resistence.domain.rebel.RebelTable;
-import com.letscode.resistence.usecase.AddRebelInput;
-import com.letscode.resistence.usecase.AddRebelUseCase;
-import com.letscode.resistence.usecase.UpdateRebelLocalizationUseCase;
+import com.letscode.resistence.usecase.rebel.AddRebelInput;
+import com.letscode.resistence.usecase.rebel.AddRebelUseCase;
+import com.letscode.resistence.usecase.rebel.UpdateRebelLocalizationUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
