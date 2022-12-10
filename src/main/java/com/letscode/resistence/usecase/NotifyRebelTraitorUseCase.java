@@ -4,9 +4,11 @@ import com.letscode.resistence.domain.notification.NotificationRepository;
 import com.letscode.resistence.domain.notification.NotificationTable;
 import com.letscode.resistence.domain.rebel.RebelRepository;
 import com.letscode.resistence.usecase.exception.RebelAlreadyNotifiedException;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class NotifyRebelTraitorUseCase {
 
     private NotificationRepository repository;
@@ -39,4 +41,3 @@ public class NotifyRebelTraitorUseCase {
                 .build();
     }
 }
-record NotificationRebelTraitorInput(Long rebelId, Long notifierId){}

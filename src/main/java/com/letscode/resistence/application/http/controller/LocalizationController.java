@@ -31,3 +31,4 @@ public class LocalizationController {
         ResponseEntity.status(HttpStatus.CREATED).body("Successfully changed");
     }
 }
+
