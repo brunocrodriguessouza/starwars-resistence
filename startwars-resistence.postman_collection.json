@@ -1,0 +1,138 @@
+{
+	"id": "028978f2-9dbf-0b4d-5b15-baea277c0239",
+	"name": "startwars-resistence",
+	"description": "",
+	"order": [
+		"630d4058-b00b-50a2-c3f1-b4bb85e640a0",
+		"d55fd84d-ed41-efb4-586c-c2603a85beac",
+		"c5146d4d-61e9-c36f-8a4d-172bab160f14",
+		"b57a0b28-c7ff-3ebb-edd6-a9c4833ab32f"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1670198430585,
+	"owner": "2626072",
+	"public": false,
+	"requests": [
+		{
+			"id": "630d4058-b00b-50a2-c3f1-b4bb85e640a0",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/resistence/rebel/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1670545283375,
+			"name": "Add Rebel",
+			"description": "{}\t\t\t\t\t\t\t\t\t",
+			"collectionId": "028978f2-9dbf-0b4d-5b15-baea277c0239",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\":\"Rafael\",\n\t\"age\": 30,\n\t\"gender\": \"MALE\",\n\t\"location\":{\n\t\t\"latitude\": 123,\n\t\t\"longitude\":1234,\n\t\t\"galaxy_name\": \"M501\"\n\t}\n\n}"
+		},
+		{
+			"id": "b57a0b28-c7ff-3ebb-edd6-a9c4833ab32f",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/resistence/rebel/notification",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1670632411353,
+			"name": "Notify RebelTraitor",
+			"description": "{}\t\t\t\t\t\t\t\t\t",
+			"collectionId": "028978f2-9dbf-0b4d-5b15-baea277c0239",
+			"responses": [],
+			"rawModeData": "{\n\t\"rebel_id\": 1,\n\t\"notifier_id\": 2\n}"
+		},
+		{
+			"id": "c5146d4d-61e9-c36f-8a4d-172bab160f14",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/resistence/rebel/trader",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1670761209762,
+			"name": "Trade Items",
+			"description": "{}\t\t\t\t\t\t\t\t\t",
+			"collectionId": "028978f2-9dbf-0b4d-5b15-baea277c0239",
+			"responses": [],
+			"rawModeData": "{\n \"trader1\":{\n   \"rebel_id\":1,\n   \"items\":[\n\t{\n\t   \"id\":1,\n\t   \"rebel_id\":1,\n\t   \"item\":\"WATER\"\n\t   \"quantity\":2\n\t   \n\t}\n\t]\n },\n  \"trader2\":{\n\t\"rebel_id\":2,\n\t \"items\":[\n\t {\n\t   \"id\":1,\n\t   \"rebel_id\":2,\n\t   \"item\":\"WEAPON\"\n\t   \"quantity\":1\n\t }\n\t ]\n  }\n}"
+		},
+		{
+			"id": "d55fd84d-ed41-efb4-586c-c2603a85beac",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/resistence/rebel/1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1670541499856,
+			"name": "Change Rebel Location",
+			"description": "{}\t\t\t\t\t\t\t\t\t",
+			"collectionId": "028978f2-9dbf-0b4d-5b15-baea277c0239",
+			"responses": [],
+			"rawModeData": "{\n\t\"latitude\": 999,\n\t\"longitude\": 888,\n\t\"galaxy_name\":\"M69\"\n}"
+		}
+	]
+}

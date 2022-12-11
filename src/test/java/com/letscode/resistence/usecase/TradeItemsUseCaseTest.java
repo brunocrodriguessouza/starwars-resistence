@@ -1,6 +1,8 @@
 package com.letscode.resistence.usecase;
 
+import com.letscode.resistence.application.repository.rebel.RebelRepositoryInMemory;
 import com.letscode.resistence.domain.Itemtable.ItemEnum;
+import com.letscode.resistence.domain.rebel.RebelRepository;
 import com.letscode.resistence.domain.trade.TradeItems;
 import com.letscode.resistence.domain.trade.Trader;
 import com.letscode.resistence.domain.Itemtable.ItemTable;
@@ -20,7 +22,8 @@ class TradeItemsUseCaseTest {
 
     @Test
     public void shouldThrowExceptionWhenTradeItemsDoesNotExists(){
-        TradeItemsUseCase useCase = new TradeItemsUseCase();
+        RebelRepository repository = new RebelRepositoryInMemory();
+        TradeItemsUseCase useCase = new TradeItemsUseCase(repository);
         TradeItems tradeItems = new TradeItems(null, null);
 
         TradeItemsInput input = new TradeItemsInput(tradeItems);
@@ -28,7 +31,8 @@ class TradeItemsUseCaseTest {
     }
     @Test
     public void shouldThrowExceptionWhenTheSameId(){
-        TradeItemsUseCase useCase = new TradeItemsUseCase();
+        RebelRepository repository = new RebelRepositoryInMemory();
+        TradeItemsUseCase useCase = new TradeItemsUseCase(repository);
 
         ItemTable item = ItemTable.builder()
                 .id(1L)
@@ -56,7 +60,8 @@ class TradeItemsUseCaseTest {
     }
     @Test
     public void shouldThrowExceptionWhenTradeItemsWithInvalidQuantity(){
-        TradeItemsUseCase useCase = new TradeItemsUseCase();
+        RebelRepository repository = new RebelRepositoryInMemory();
+        TradeItemsUseCase useCase = new TradeItemsUseCase(repository);
 
         ItemTable item1 = ItemTable.builder()
                 .id(1L)
@@ -88,7 +93,8 @@ class TradeItemsUseCaseTest {
 
     @Test
     public void shouldThrowExceptionWhenTradeItemsWithInvalidQuantity2(){
-        TradeItemsUseCase useCase = new TradeItemsUseCase();
+        RebelRepository repository = new RebelRepositoryInMemory();
+        TradeItemsUseCase useCase = new TradeItemsUseCase(repository);
 
         ItemTable item1 = ItemTable.builder()
                 .id(1L)

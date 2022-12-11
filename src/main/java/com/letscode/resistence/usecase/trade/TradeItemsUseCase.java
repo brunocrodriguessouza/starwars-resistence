@@ -8,12 +8,18 @@ import com.letscode.resistence.domain.trade.Trader;
 import com.letscode.resistence.usecase.exception.TradeIsNotAllowedForTheSameIdException;
 import com.letscode.resistence.usecase.exception.TradeItemsDoesNotExistsException;
 import com.letscode.resistence.usecase.exception.TradeItemsWithInvalidQuantityException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TradeItemsUseCase {
 
     private RebelRepository rebelRepository;
+
+    public TradeItemsUseCase(RebelRepository rebelRepository){
+        this.rebelRepository = rebelRepository;
+    }
+
 
     public void handle(TradeItemsInput input){
 
@@ -22,6 +28,7 @@ public class TradeItemsUseCase {
     }
 
     private void validateTrade(TradeItems tradeItems) {
+
         if(tradeItems.getTrader1() == null || tradeItems.getTrader2() == null){
             throw new TradeItemsDoesNotExistsException();
         }
@@ -42,23 +49,12 @@ public class TradeItemsUseCase {
         RebelTable rebel1 = rebelRepository.findById(trader1.getRebelId()).orElseThrow(TradeItemsWithInvalidQuantityException::new);
         RebelTable rebel2 = rebelRepository.findById(trader2.getRebelId()).orElseThrow(TradeItemsWithInvalidQuantityException::new);
 
-        Trader transaction1 = Trader.builder().rebelId(trader1.getRebelId()).build();
-        Trader transaction2 = Trader.builder().rebelId(trader2.getRebelId()).build();
-
-        try{
-            applyTrade(trader1, rebel1, rebel2, transaction1);
-            applyTrade(trader2, rebel2, rebel1, transaction2);
-            rebelRepository.save(rebel1);
-            rebelRepository.save(rebel2);
-
-        } catch(Exception e){
-            rollbackTrade(rebel1, rebel2, transaction1);
-            rollbackTrade(rebel2, rebel1, transaction2);
-        }
-
+        applyTrade(trader1, rebel1, rebel2);
+        rebelRepository.save(rebel1);
+        rebelRepository.save(rebel2);
     }
 
-    private void applyTrade(Trader trader, RebelTable rebel1, RebelTable rebel2, Trader transaction) {
+    private void applyTrade(Trader trader, RebelTable rebel1, RebelTable rebel2) {
         for(ItemTable item: trader.getItems()){
             var itemTable = rebel1.getItems().stream()
                     .filter(it -> it.getItemEnum().equals(item.getItemEnum())).findFirst().orElseThrow(TradeItemsWithInvalidQuantityException::new);
@@ -66,14 +62,6 @@ public class TradeItemsUseCase {
                 rebel2.addItem(item);
                 rebel1.remove(item);
             }
-            transaction.getItems().add(item);
-        }
-    }
-
-    private void rollbackTrade(RebelTable rebel1, RebelTable rebel2, Trader transaction1) {
-        for(ItemTable item: transaction1.getItems()){
-            rebel1.addItem(item);
-            rebel2.remove(item);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.letscode.resistence.domain.Itemtable;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.letscode.resistence.domain.rebel.RebelTable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,10 +20,12 @@ public class ItemTable {
 
     @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name = "rebel_id")
+    @JsonProperty("rebel")
     private RebelTable rebel;
 
     @Enumerated(EnumType.STRING)
     @Column(name="itemEnum")
+    @JsonProperty("item")
     private ItemEnum itemEnum;
     private Integer quantity;
 
