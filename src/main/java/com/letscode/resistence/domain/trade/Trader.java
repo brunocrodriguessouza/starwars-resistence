@@ -12,6 +12,5 @@ public class Trader {
 
     private Long rebelId;
     private List<ItemTable> items;
-
 }
 

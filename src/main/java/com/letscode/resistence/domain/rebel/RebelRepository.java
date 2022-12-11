@@ -8,8 +8,6 @@ public interface RebelRepository {
 
     Optional<RebelTable> findById(Long id);
 
-//    RebelTable updateLocationById(Long id, LocalizationTable location);
-
     RebelTable updateTraitorById(Long rebelId, boolean isTraitor);
 
 }

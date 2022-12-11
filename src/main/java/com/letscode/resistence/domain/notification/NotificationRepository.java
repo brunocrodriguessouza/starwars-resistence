@@ -9,4 +9,5 @@ public interface NotificationRepository {
     Optional<NotificationTable> findByRebelIdAndNotifierIdExists(Long rebelId, Long notifierId);
 
     long countNotificationByRebelId(Long rebelId);
+
 }

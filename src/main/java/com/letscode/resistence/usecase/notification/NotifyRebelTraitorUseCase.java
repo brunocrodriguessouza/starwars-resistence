@@ -4,7 +4,6 @@ import com.letscode.resistence.domain.notification.NotificationRepository;
 import com.letscode.resistence.domain.notification.NotificationTable;
 import com.letscode.resistence.domain.rebel.RebelRepository;
 import com.letscode.resistence.usecase.exception.RebelAlreadyNotifiedException;
-import com.letscode.resistence.usecase.notification.NotifyRebelTraitorInput;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

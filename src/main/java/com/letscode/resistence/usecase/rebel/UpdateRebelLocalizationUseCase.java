@@ -1,8 +1,8 @@
 package com.letscode.resistence.usecase.rebel;
 
-import com.letscode.resistence.domain.rebel.*;
+import com.letscode.resistence.domain.rebel.LocalizationRepository;
+import com.letscode.resistence.domain.rebel.LocalizationTable;
 import com.letscode.resistence.usecase.exception.RebelNotFoundException;
-import com.letscode.resistence.usecase.rebel.UpdateRebelLocalizationInput;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

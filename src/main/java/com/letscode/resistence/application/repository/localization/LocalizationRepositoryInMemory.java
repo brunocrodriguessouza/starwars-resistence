@@ -19,19 +19,6 @@ public class LocalizationRepositoryInMemory implements LocalizationRepository {
         return table;
     }
 
-    //    @Override
-//    public RebelTable updateLocationById(Long id, LocalizationTable location) {
-//        int index = (int) (id - 1);
-//
-//        RebelTable rebel = database.stream()
-//                .filter(rebelTable -> rebelTable.getId().equals(id)).findFirst().get();
-//
-//        rebel.setLocation(location);
-//
-//       database.add(index, rebel);
-//       return rebel;
-//    }
-
     @Override
     public Optional<LocalizationTable> findByRebelId(Long rebelId) {
         return database.stream()

@@ -1,14 +1,16 @@
 package com.letscode.resistence.usecase.trade;
 
 import com.letscode.resistence.domain.Itemtable.ItemTable;
+import com.letscode.resistence.domain.rebel.RebelRepository;
+import com.letscode.resistence.domain.rebel.RebelTable;
 import com.letscode.resistence.domain.trade.TradeItems;
 import com.letscode.resistence.domain.trade.Trader;
-import com.letscode.resistence.domain.rebel.*;
 import com.letscode.resistence.usecase.exception.TradeIsNotAllowedForTheSameIdException;
 import com.letscode.resistence.usecase.exception.TradeItemsDoesNotExistsException;
 import com.letscode.resistence.usecase.exception.TradeItemsWithInvalidQuantityException;
-import com.letscode.resistence.usecase.trade.TradeItemsInput;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TradeItemsUseCase {
 
     private RebelRepository rebelRepository;
