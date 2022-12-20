@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/resistence")
 public class RebelController{
@@ -29,7 +31,7 @@ public class RebelController{
 
     @PostMapping(value = "/rebel")
     @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public ResponseEntity<RebelTable> addRebel(@RequestBody RebelTable rebelTable){
+    public ResponseEntity<RebelTable> addRebel(@Valid @RequestBody RebelTable rebelTable){
         var input = new AddRebelInput(
                 rebelTable.getName(),
                 rebelTable.getAge(),

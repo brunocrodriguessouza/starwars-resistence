@@ -3,6 +3,7 @@ package com.letscode.resistence.domain.rebel;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.letscode.resistence.domain.Itemtable.ItemTable;
 import com.letscode.resistence.usecase.exception.ItemTableNotFoundException;
+import javax.validation.constraints.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,7 +24,10 @@ public class RebelTable{
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long id;
 
+    @NotNull(message = "Name is mandatory")
     private String name;
+
+    @NotNull(message = "Age is mandatory")
     private Integer age;
 
     @Enumerated(EnumType.STRING)
